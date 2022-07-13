@@ -1,0 +1,72 @@
+﻿.sidepanel {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #565f6ef1;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-bottom: 65px;
+}
+
+    .sidepanel a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #D6DDEC;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidepanel a:hover {
+            color: #f1f1f1;
+        }
+
+.openbtn {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    background-color: #575f6e00;
+    color: #565f6e;
+    border: none;
+}
+
+    .openbtn:hover {
+        background-color: #565f6e94;
+        color: white;
+    }
+
+.list-group-item {
+    font-size: 18px !important;
+    background-color: #9dc45500;
+}
+
+    .list-group-item:hover {
+        font-size: 18px !important;
+        background-color: #8793a3;
+    }
+    .list-group-item.disabled {
+        background-color: #9dc45500 !important;
+    }
+
+
+    .list-group-item.active {
+        background-color: #8793a3 !important;
+        border: #565f6eb0 !important;
+    }
+.topic {
+    background-color:rgba(247, 247, 247, 0.9);
+    margin-left: 10%;
+    margin-right:10%;
+    margin-top: 66px;
+    position:relative;
+    padding: 20px;
+}
+    .topic img {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        max-width: 100%;
+        height: auto !important;
+    }

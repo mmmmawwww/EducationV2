@@ -1,0 +1,8 @@
+﻿@model Training.WEB.Models.TopicView
+
+<div>
+    @Html.Raw(Model.Topic)
+    <hr />
+    @Html.ActionLink("Тест", "Test", "Test", new { id = Model.TopicID }, null)
+</div>
+

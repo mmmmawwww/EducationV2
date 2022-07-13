@@ -1,0 +1,39 @@
+﻿@model Training.WEB.Models.TestResultViewModel
+@{
+    ViewBag.Title = "TestResult";
+}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="~/ResourceFiles/Logo/LOGOHeader2.png" class="d-inline-block align-top" alt=""></a>
+        <button class="btn navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="topic shadow">
+    @if (Model.WrongAnswers.Count() == 0)
+    {
+        <h2>Тест пройден успешно ваша оценка: @Model.Mark</h2>
+        <hr />
+    }
+    else
+    {
+        <h2>Тест пройден успешно</h2>
+        <h3>Список вопросов в которых были допущены ошибки:</h3>
+        <ol style="padding: 50px; margin: 0 30px;">
+            @foreach (var ans in Model.WrongAnswers)
+            {
+                <li>@ans</li>
+            }
+        </ol>
+        <p>Ваша оценка:@Model.Mark</p>
+        <hr />
+    }
+    @Html.ActionLink("Перейти на главную", "Topic", "TopicPage")
+</div>
+

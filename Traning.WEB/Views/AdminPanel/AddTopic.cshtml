@@ -1,0 +1,56 @@
+﻿@model Training.WEB.Models.TopicView
+@{
+    ViewBag.Title = "AddTopic";
+}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="~/ResourceFiles/Logo/LOGOHeader2.png" class="d-inline-block align-top" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="content-area shadow" style="margin-top: 80px;">
+    @using (Html.BeginForm("AddTopic", "AdminPanel", FormMethod.Post))
+    {
+        <div class="form-row">
+
+            <div class="col form-group">
+                <label>Название темы</label>
+                @Html.EditorFor(model => model.TopicName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TopicName, "", new { @class = "text-danger" })
+            </div> <!-- form-group end.// -->
+            <div class="col form-group">
+                <label>порядковый номер</label>
+                @Html.EditorFor(model => model.SequenceNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SequenceNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.TextAreaFor(model => model.Topic);
+<div class="form-group">
+    <label>Название теста</label>
+    <input id="TestName" name="TestName" type="text" class="form-control" />
+</div>
+
+        <div><input type="submit" value="Отправить" /></div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/CkFinder")
+    @Scripts.Render("~/bundles/CkEditor")
+}
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        var editor = CKEDITOR.replace('Topic');
+        CKFinder.setupCKEditor(editor);
+    })
+</script>

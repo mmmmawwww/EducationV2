@@ -1,0 +1,76 @@
+﻿@model Training.WEB.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="container" id="Regcontainer">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <header class="card-header">
+                    <a href="/Account/Login" class="float-right btn btn-outline-primary mt-1" style="border: none;">Войти</a>
+                    <h4 class="card-title mt-2">Регистрация</h4>
+                </header>
+                <article class="card-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-row">
+
+                            <div class="col form-group">
+                                <label>Имя</label>
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите имя" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div> <!-- form-group end.// -->
+                            <div class="col form-group">
+                                <label>Фамилия</label>
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите фамилию" } })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row end.// -->
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label>Отчество</label>
+                                @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите отчество" } })
+                                @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+                            </div> <!-- form-group end.// -->
+                            <div class="col form-group">
+                                <label>Группа</label>
+                                @Html.EditorFor(model => model.Group, new { htmlAttributes = new { @class = "form-control", @placeholder = "Введите группу" } })
+                                @Html.ValidationMessageFor(model => model.Group, "", new { @class = "text-danger" })
+                                <small class="form-text text-muted">Введите группу в верхнем регистре. Например "ТОМ-11"</small>
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row end.// -->
+                        <div class="form-group">
+                            <label>Логин</label>
+                            @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control", @placeholder = "Придумайте логин" } })
+                            @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                        </div> <!-- form-group end.// -->
+                        <div class="form-group">
+                            <label>Пароль</label>
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Придумайте пароль" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div> <!-- form-group end.// -->
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", @placeholder = "Повторите пароль" } })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Зарегистрироваться" class="btn btn-primary btn-block">
+                        </div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    }
+                    <form>
+                    </form>
+                </article> <!-- card-body end .// -->
+
+            </div> <!-- card.// -->
+        </div> <!-- col.//-->
+
+    </div> <!-- row.//-->
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

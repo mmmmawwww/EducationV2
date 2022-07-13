@@ -1,0 +1,49 @@
+﻿@model Training.WEB.Models.TestViewModel
+@{
+    ViewBag.Title = "Test";
+}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="~/ResourceFiles/Logo/LOGOHeader2.png" class="d-inline-block align-top" alt=""></a>
+        <button class="btn navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="topic shadow">
+    <h2>@Model.TestName</h2>
+
+    @using (Html.BeginForm())
+    {
+
+        <ol style="padding: 50px; margin: 0 30px;">
+            @{ int i = 0;}
+            @foreach (var item in Model.TestQuestions)
+            {
+               
+                <li>
+                    @item.Question
+
+                    <div class="col form-group" style="padding-top:15px;">
+                        @Html.RadioButtonFor(m => m.Answers[i].answer, item.Answer_1) @item.Answer_1
+                        @Html.RadioButtonFor(m => m.Answers[i].answer, item.Answer_2)   @item.Answer_2
+                        @Html.RadioButtonFor(m => m.Answers[i].answer, item.Answer_3)   @item.Answer_3
+                        @Html.RadioButtonFor(m => m.Answers[i].answer, item.Answer_4)   @item.Answer_4
+                        @Html.Hidden($"Answers[{i}].QuestionID", item.QuestionID)
+                    </div> 
+                </li>
+                <hr />
+                i++;
+            }
+        </ol>
+        <p><input type="submit" value="Выбрать"></p>
+    }
+
+
+
+</div>

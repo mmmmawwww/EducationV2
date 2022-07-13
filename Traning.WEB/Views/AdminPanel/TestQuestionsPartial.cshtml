@@ -1,0 +1,33 @@
+﻿
+@model List<Training.WEB.Models.QuestionViewModel>
+
+@foreach (var item in Model)
+{
+<div class="col form-group">  
+    <label>@item.Question</label>
+</div>
+<div class="form-row">
+    <div class="col form-group">
+        <label>@item.Answer_1</label >
+
+</div> <!-- form-group end.// -->
+    <div class="col form-group">
+        <label>@item.Answer_2</label >
+
+</div>
+</div>
+<div class="form-row">
+    <div class="col form-group">
+        <label>@item.Answer_3</label >
+
+</div> <!-- form-group end.// -->
+    <div class="col form-group">
+        <label>@item.Answer_4</label >
+
+</div>
+</div>
+<div class="col form-group">
+    <label>@item.Correct_answer </label >
+
+</div>
+}

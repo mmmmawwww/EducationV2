@@ -1,0 +1,42 @@
+﻿
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="~/ResourceFiles/Logo/LOGOHeader2.png" class="d-inline-block align-top" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    @Html.ActionLink("Выход", "Logoff", null, new { @class = "nav-link" })
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="content-area shadow" style="margin-top: 80px;">
+    <p class="h2">Саргсян Давид Гарникович</p>
+    <p class="h5">Администратор</p>
+    <hr>
+    <p class="h4">Изменить пароль</p>
+    @using (Ajax.BeginForm("ChangePassword", new AjaxOptions { UpdateTargetId = "ResultChangeMessage" }))
+    {
+        <div class="form-row">
+            <div class="col form-group">
+                <input type="password" name="password" class="form-control" placeholder="Введите новый пароль">
+            </div> <!-- form-group end.// -->
+            <div class="col form-group">
+                <input type="password" name="chekpass" class="form-control" placeholder="Повторите пароль">
+            </div> <!-- form-group end.// -->
+        </div> <!-- form-row end.// -->
+        <div id="ResultChangeMessage"></div>
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary"> Изменить пароль  </button>
+        </div> <!-- form-group// -->
+    }
+
+</div>
+
+<div class="content-area shadow">
+    @Html.ActionLink("Войти", "AddTopic", "AdminPanel", new { @class = "btn btn-primary btn-block" })
+</div>
